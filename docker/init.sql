@@ -111,3 +111,21 @@ CREATE TABLE FEEDBACK
     RATE BOOLEAN,
     DESCRIPTION VARCHAR(200)
 );
+
+
+-- Trigger de auditoria
+CREATE OR REPLACE FUNCTION audit_scheduling_orders()
+RETURNS TRIGGER AS $$
+BEGIN
+    IF NEW.approved = FALSE THEN
+        INSERT INTO order_refused (scheduling_order_id, refused_date)
+        VALUES (NEW.id, NOW());
+    END IF;
+    RETURN NEW;
+END;
+$$ LANGUAGE plpgsql;
+
+CREATE TRIGGER t_audit_scheduling_orders
+AFTER UPDATE ON scheduling_orders
+FOR EACH ROW
+EXECUTE FUNCTION audit_scheduling_orders();
