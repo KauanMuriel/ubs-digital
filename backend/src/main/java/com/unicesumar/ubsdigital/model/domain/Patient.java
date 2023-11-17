@@ -13,7 +13,7 @@ import java.util.List;
 public class Patient extends User
 {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     public Integer id;
     public Integer userId;
     public Integer federalCode;

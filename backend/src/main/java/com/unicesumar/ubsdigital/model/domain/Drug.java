@@ -9,11 +9,11 @@ import jakarta.persistence.Id;
 public class Drug
 {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    public Integer id;
-    public String name;
-    public String leaflet;
-    public String recordNumber;
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Integer id;
+    private String name;
+    private String leaflet;
+    private String recordNumber;
 
     public Integer getId() {
         return id;
@@ -46,8 +46,6 @@ public class Drug
     public void setRecordNumber(String recordNumber) {
         this.recordNumber = recordNumber;
     }
-
-    public Drug() {}
 
     public Drug(Integer id, String name, String leaflet, String recordNumber) {
         this.id = id;

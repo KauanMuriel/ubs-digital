@@ -2,7 +2,7 @@ package com.unicesumar.ubsdigital.controller;
 
 import com.unicesumar.ubsdigital.model.domain.Patient;
 import com.unicesumar.ubsdigital.model.repository.PatientRepository;
-import com.unicesumar.ubsdigital.model.service.UserServiceImpl;
+import com.unicesumar.ubsdigital.model.service.UserService;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -10,11 +10,11 @@ import java.util.Optional;
 
 @RestController
 @RequestMapping("/patients")
-public class PatientCrontroller {
+public class PatientController {
     private final PatientRepository patientRepository;
-    private final UserServiceImpl userService;
+    private final UserService userService;
 
-    public PatientCrontroller(PatientRepository patientRepository, UserServiceImpl userService) {
+    public PatientController(PatientRepository patientRepository, UserService userService) {
         this.patientRepository = patientRepository;
         this.userService = userService;
     }
@@ -42,7 +42,6 @@ public class PatientCrontroller {
                     patient.setFederalCode(newPatient.getFederalCode());
                     patient.setDrugsClaimed(newPatient.getDrugsClaimed());
                     patient.setActive(newPatient.getActive());
-                    patient.setDrugsClaimed(newPatient.getDrugsClaimed());
                     patient.setLastEntry(newPatient.getLastEntry());
                     return patientRepository.save(patient);
                 }).orElseGet(() -> patientRepository.save(newPatient));

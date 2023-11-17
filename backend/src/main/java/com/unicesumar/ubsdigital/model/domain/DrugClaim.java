@@ -11,7 +11,7 @@ import java.time.LocalDate;
 public class DrugClaim
 {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     public Integer id;
     public Drug drug;
     public Boolean recurrent;

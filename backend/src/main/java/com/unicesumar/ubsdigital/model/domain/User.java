@@ -11,7 +11,7 @@ import java.time.LocalDate;
 public class User
 {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     public Integer id;
     public String cpf;
     public LocalDate createdDate;
