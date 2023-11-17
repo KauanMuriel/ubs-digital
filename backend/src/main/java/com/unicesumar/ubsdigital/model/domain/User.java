@@ -1,9 +1,17 @@
 package com.unicesumar.ubsdigital.model.domain;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+
 import java.time.LocalDate;
 
-public abstract class Person
+@Entity
+public class User
 {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     public Integer id;
     public String cpf;
     public LocalDate createdDate;
@@ -50,7 +58,15 @@ public abstract class Person
         this.active = active;
     }
 
-    public Person(Integer id, String cpf, LocalDate createdDate, LocalDate lastEntry, Boolean active)
+    public User() {}
+
+    public User(String cpf) {
+        this.cpf = cpf;
+        this.active = true;
+        this.createdDate = LocalDate.now();
+    }
+
+    public User(Integer id, String cpf, LocalDate createdDate, LocalDate lastEntry, Boolean active)
     {
         this.id = id;
         this.cpf = cpf;

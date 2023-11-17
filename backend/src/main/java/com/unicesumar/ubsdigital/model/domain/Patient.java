@@ -1,10 +1,19 @@
 package com.unicesumar.ubsdigital.model.domain;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
 
-public class Patient extends Person
+@Entity
+public class Patient extends User
 {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     public Integer id;
     public Integer userId;
     public Integer federalCode;
@@ -40,6 +49,12 @@ public class Patient extends Person
 
     public void setDrugsClaimed(List<DrugClaim> drugsClaimed) {
         this.drugsClaimed = drugsClaimed;
+    }
+
+    public Patient(Integer userId, Integer federalCode) {
+        this.userId = userId;
+        this.federalCode = federalCode;
+        this.drugsClaimed = new ArrayList<>();
     }
 
     public Patient(Integer id, String cpf, LocalDate createdDate, LocalDate lastEntry, Boolean active , Integer userId, Integer federalCode)

@@ -2,7 +2,7 @@ package com.unicesumar.ubsdigital.model.domain;
 
 import java.time.LocalDate;
 
-public class HealthSecretary extends Person
+public class HealthSecretary extends User
 {
     public Integer id;
     public Integer userId;

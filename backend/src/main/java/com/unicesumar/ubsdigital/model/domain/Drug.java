@@ -1,7 +1,15 @@
 package com.unicesumar.ubsdigital.model.domain;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+
+@Entity
 public class Drug
 {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     public Integer id;
     public String name;
     public String leaflet;
@@ -38,6 +46,8 @@ public class Drug
     public void setRecordNumber(String recordNumber) {
         this.recordNumber = recordNumber;
     }
+
+    public Drug() {}
 
     public Drug(Integer id, String name, String leaflet, String recordNumber) {
         this.id = id;

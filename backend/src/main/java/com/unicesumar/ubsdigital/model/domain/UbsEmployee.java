@@ -2,7 +2,7 @@ package com.unicesumar.ubsdigital.model.domain;
 
 import java.time.LocalDate;
 
-public abstract class UbsEmployee extends Person
+public abstract class UbsEmployee extends User
 {
     public String name;
     public Integer createdBySecretary;

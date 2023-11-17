@@ -2,7 +2,7 @@ package com.unicesumar.ubsdigital.model.domain;
 
 import java.time.LocalDate;
 
-public class TiAdmin extends Person
+public class TiAdmin extends User
 {
     public Integer id;
     public Integer userId;
